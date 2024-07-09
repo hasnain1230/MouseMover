@@ -6,7 +6,7 @@ from threading import Thread
 
 
 class MouseMover:
-    def __init__(self, move_distance=1000, interval=0.1):
+    def __init__(self, move_distance=10, interval=10):
         self.move_distance = move_distance
         self.interval = interval
         self.is_active = False
@@ -22,7 +22,6 @@ class MouseMover:
 
     def move_mouse(self):
         while self.is_active:
-            current_x, current_y = pyautogui.position()
             pyautogui.moveRel(self.move_distance, 0, duration=0.1)
             time.sleep(0.1)
             pyautogui.moveRel(-self.move_distance, 0, duration=0.1)
